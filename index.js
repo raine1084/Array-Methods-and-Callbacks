@@ -7,7 +7,7 @@ Practice accessing data by console.log-ing the following pieces of data note, yo
 
 //(a) Home Team name for 2014 world cup final
 const homeTeamName = fifaData.filter(function(item){
-
+return item.name
 })
 //(b) Away Team name for 2014 world cup final
 
@@ -61,7 +61,7 @@ function getWinners(array, callback) {
             name.push
         
         }else {
-            names.push(team['Away Team Goals']);
+            name.push(team['Away Team Goals']);
         }
     });
     return name;
@@ -82,9 +82,17 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(array, ) {
-    /* code here */
-}
+function getWinnersByYear(array, getFinalscb, getYearscb, getWinnerscb ) {
+    const winners = getWinnerscb(array, getFinalscb);
+    const years = getYearscb(array, getFinalscb);
+    const returnarray = winners.map((teams, index) => {
+return `In ${years[index]}, ${teams} won the world cup!`;
+    });
+    return returnarray;
+
+    }
+
+
 
 
 
@@ -98,9 +106,12 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
-}
+function getAverageGoals(getFinals) {
+
+
+
+   
+
 
 
 
