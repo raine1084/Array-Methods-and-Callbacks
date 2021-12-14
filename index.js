@@ -6,7 +6,9 @@ const { fifaData } = require('./fifa.js')
 Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
+const homeTeamName = fifaData.filter(function(item){
 
+})
 //(b) Away Team name for 2014 world cup final
 
 //(c) Home Team goals for 2014 world cup final
@@ -24,11 +26,12 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+   let finalsStage = data.map((teams) => {return teams.finalsStage});
+   return finalsStage;
 }
 
-
+console.log(getFinals);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -36,10 +39,11 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
-}
-
+function getYears(array, callback) {
+    let years = callback(array).map((teams) => {return teams.Year} );
+    return years;
+};
+console.log(getYears);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -49,9 +53,21 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(array, callback) {
+    let name = [];
+    let finals = callback(array);
+    let winners = finals.map((team) => {
+        if(team['Home Team Goals'] > team['Away Team Goals']){
+            name.push
+        
+        }else {
+            names.push(team['Away Team Goals']);
+        }
+    });
+    return name;
 }
+
+
 
 
 
@@ -66,7 +82,7 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
+function getWinnersByYear(array, ) {
     /* code here */
 }
 
